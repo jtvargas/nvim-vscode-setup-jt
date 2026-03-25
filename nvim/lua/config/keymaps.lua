@@ -55,3 +55,6 @@ map("n", "<C-k>", "<C-w>k", { desc = "Move to above split" })
 
 -- Terminal toggle (like VSCode Ctrl+`)
 map("n", "<C-`>", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
+
+-- Git blame toggle (like VSCode GitLens)
+map("n", "<leader>gb", function() require("gitsigns").toggle_current_line_blame() end, { desc = "Toggle git blame" })

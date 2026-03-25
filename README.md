@@ -194,13 +194,14 @@ Defined in [`lua/config/keymaps.lua`](nvim/lua/config/keymaps.lua).
 | `Ctrl+Shift+Up` | n, v | Duplicate line/selection up | |
 | `Ctrl+/` | n, v | Toggle comment | |
 
-**Splits & Terminal**
+**Splits, Terminal & Git**
 
 | Shortcut | Mode | Action |
 |----------|------|--------|
 | `Ctrl+\` | n | Vertical split |
 | `Ctrl+H/J/K/L` | n | Navigate between splits |
 | `` Ctrl+` `` | n | Toggle terminal |
+| `Space g b` | n | Toggle inline git blame |
 
 <details>
 <summary><strong>LazyVim Built-in Keymaps</strong> (click to expand)</summary>
@@ -294,7 +295,7 @@ These are available without any configuration. Full list: https://www.lazyvim.or
 
 | Plugin | Purpose |
 |--------|---------|
-| `gitsigns.nvim` | Git change indicators in gutter |
+| `gitsigns.nvim` **[custom]** | Git signs + inline blame (GitLens-style) |
 
 ---
 
@@ -317,7 +318,8 @@ These are available without any configuration. Full list: https://www.lazyvim.or
     └── plugins/
         ├── colorscheme.lua         # ★ JARVIS dark theme
         ├── neo-tree.lua            # ★ File explorer config
-        └── vim-visual-multi.lua    # ★ Multi-cursor config
+        ├── vim-visual-multi.lua    # ★ Multi-cursor config
+        └── gitsigns.lua           # ★ Inline git blame (GitLens)
 ```
 
 ### Quick Reference: What to Edit
@@ -346,6 +348,19 @@ These are available without any configuration. Full list: https://www.lazyvim.or
 | `follow_current_file` | `true` | Tree follows the active file |
 | `hide_dotfiles` | `false` | Shows `.env`, `.git`, etc. |
 | `hide_gitignored` | `false` | Shows gitignored files |
+
+### Inline Git Blame (GitLens-style)
+
+Defined in [`lua/plugins/gitsigns.lua`](nvim/lua/plugins/gitsigns.lua). Shows author, time, and commit message on the current line — like VSCode's GitLens extension.
+
+| Setting | Value | Effect |
+|---------|-------|--------|
+| `current_line_blame` | `true` | Enabled by default |
+| `virt_text_pos` | `"eol"` | Shows at end of line |
+| `delay` | `300` | 300ms debounce (fast, no lag) |
+| Format | `<author> [<time>] - <summary>` | e.g., "John [2 hours ago] - Fix bug" |
+
+Toggle with `Space g b`. The text is automatically dimmed (low opacity) and hides in insert mode.
 
 <details>
 <summary><strong>JARVIS Color Palette</strong> (click to expand)</summary>
