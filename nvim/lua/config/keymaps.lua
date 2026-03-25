@@ -25,8 +25,8 @@ map("v", "<C-S-Down>", "y'>p", { desc = "Duplicate selection down" })
 map("v", "<C-S-Up>", "y'<P", { desc = "Duplicate selection up" })
 
 -- Comment line / block (requires LazyVim comment plugin)
-map("n", "<C-_>", "gcc", { desc = "Toggle line comment" })
-map("v", "<C-_>", "gc", { desc = "Toggle selection comment" })
+map("n", "<C-_>", "gcc", { remap = true, desc = "Toggle line comment" })
+map("v", "<C-_>", "gc", { remap = true, desc = "Toggle selection comment" })
 
 -- File Explorer (VSCode Ctrl+B)
 map("n", "<C-b>", "<cmd>Neotree toggle<cr>", { desc = "Toggle File Explorer" })
