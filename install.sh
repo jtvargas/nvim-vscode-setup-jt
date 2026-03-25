@@ -127,3 +127,7 @@ echo -e "  ${BLUE}3.${NC} Wait for plugins to finish installing, then restart Ne
 echo -e ""
 echo -e "  ${BLUE}4.${NC} Press ${YELLOW}Space${NC} to see the which-key menu with all shortcuts"
 echo ""
+echo -e "  ${BLUE}5.${NC} ${YELLOW}[iTerm2 users]${NC} Enable Cmd shortcuts (Cmd+S, Cmd+P, etc.):"
+echo -e "     Close iTerm2 first, then run:"
+echo -e "     ${GREEN}curl -fsSL https://raw.githubusercontent.com/$REPO/$BRANCH/setup-iterm-keys.sh | bash${NC}"
+echo ""

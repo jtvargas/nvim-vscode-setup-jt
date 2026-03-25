@@ -31,6 +31,7 @@ curl -fsSL https://raw.githubusercontent.com/jtvargas/nvim-vscode-setup-jt/main/
 - [What Gets Installed](#what-gets-installed)
 - [Manual Install](#manual-install)
 - [After Installation](#after-installation)
+- [iTerm2 — Use Cmd Instead of Ctrl](#iterm2--use-cmd-instead-of-ctrl)
 - [Keymaps Reference](#keymaps-reference)
 - [Plugins](#plugins)
 - [Configuration](#configuration)
@@ -98,9 +99,67 @@ nvim
 
 ---
 
+## iTerm2 — Use Cmd Instead of Ctrl
+
+By default, terminal apps intercept `Cmd` keypresses (e.g., `Cmd+W` closes the terminal tab, not the Neovim buffer). The keymaps use `Ctrl` as a universal workaround.
+
+**But if you use iTerm2**, you can remap `Cmd` to send `Ctrl` to Neovim — so you press `Cmd+S` and Neovim receives `Ctrl+S`. Best of both worlds.
+
+**One-liner setup** (close iTerm2 first!):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jtvargas/nvim-vscode-setup-jt/main/setup-iterm-keys.sh | bash
+```
+
+This adds global key mappings for:
+
+| You press | Neovim receives | Action |
+|-----------|-----------------|--------|
+| `Cmd+S` | `Ctrl+S` | Save file |
+| `Cmd+Z` | `Ctrl+Z` | Undo |
+| `Cmd+Y` | `Ctrl+Y` | Redo |
+| `Cmd+A` | `Ctrl+A` | Select all |
+| `Cmd+P` | `Ctrl+P` | Find files |
+| `Cmd+F` | `Ctrl+F` | Search in file |
+| `Cmd+G` | `Ctrl+G` | Grep all files |
+| `Cmd+W` | `Ctrl+W` | Close buffer |
+| `Cmd+D` | `Ctrl+D` | Multi-select next |
+| `Cmd+B` | `Ctrl+B` | Toggle explorer |
+| `Cmd+\` | `Ctrl+\` | Vertical split |
+
+<details>
+<summary><strong>Manual setup</strong> (click to expand)</summary>
+
+If you prefer to add mappings by hand:
+
+1. Open iTerm2 > **Settings > Keys > Key Bindings**
+2. Click **+** to add a new mapping
+3. Set **Shortcut** to the Cmd combo (e.g., `Cmd+S`)
+4. Set **Action** to **Send Hex Code**
+5. Enter the hex code from the table below and click OK
+
+| Shortcut | Hex Code |
+|----------|----------|
+| `Cmd+S` | `0x13` |
+| `Cmd+Z` | `0x1a` |
+| `Cmd+Y` | `0x19` |
+| `Cmd+A` | `0x01` |
+| `Cmd+P` | `0x10` |
+| `Cmd+F` | `0x06` |
+| `Cmd+G` | `0x07` |
+| `Cmd+W` | `0x17` |
+| `Cmd+D` | `0x04` |
+| `Cmd+B` | `0x02` |
+| `Cmd+\` | `0x1c` |
+
+</details>
+
+---
+
 ## Keymaps Reference
 
 All custom keymaps use **Ctrl** in place of macOS **Cmd** for terminal compatibility.
+If you're on iTerm2, [set up Cmd remapping](#iterm2--use-cmd-instead-of-ctrl) to use Cmd directly.
 Defined in [`lua/config/keymaps.lua`](nvim/lua/config/keymaps.lua).
 
 ### Custom Shortcuts (VSCode-Style)
