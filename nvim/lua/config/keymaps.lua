@@ -58,3 +58,24 @@ map("n", "<C-`>", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
 
 -- Git blame toggle (like VSCode GitLens)
 map("n", "<leader>gb", function() require("gitsigns").toggle_current_line_blame() end, { desc = "Toggle git blame" })
+
+-- Ctrl+Click: smart navigation (like VSCode Cmd+Click)
+-- On a string (import path) → opens the file, on a symbol → goes to LSP definition
+map("n", "<C-LeftMouse>", function()
+  vim.cmd("normal! \x80\xfd\x2c")
+  vim.schedule(function()
+    local node = vim.treesitter.get_node()
+    while node do
+      local ntype = node:type()
+      if ntype == "string" or ntype == "string_fragment" or ntype == "template_string" then
+        local ok = pcall(vim.cmd, "normal! gf")
+        if not ok then
+          vim.lsp.buf.definition()
+        end
+        return
+      end
+      node = node:parent()
+    end
+    vim.lsp.buf.definition()
+  end)
+end, { desc = "Go to definition / file (Ctrl+Click)" })

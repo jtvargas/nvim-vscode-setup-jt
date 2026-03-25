@@ -188,6 +188,7 @@ Defined in [`lua/config/keymaps.lua`](nvim/lua/config/keymaps.lua).
 
 | Shortcut | Mode | Action | Notes |
 |----------|------|--------|-------|
+| `Ctrl+Click` | n | Go to definition / open file | Smart: path → file, symbol → LSP |
 | `Double-click` | n | Select word | `viw` |
 | `Ctrl+D` | n, v | Multi-select next occurrence | vim-visual-multi |
 | `Ctrl+Shift+Down` | n, v | Duplicate line/selection down | |
@@ -314,7 +315,7 @@ These are available without any configuration. Full list: https://www.lazyvim.or
     │   ├── keymaps.lua             # ★ VSCode-style keybindings
     │   ├── options.lua             # ★ Vim options
     │   ├── lazy.lua                # Plugin manager setup
-    │   └── autocmds.lua            # Autocommands (empty)
+    │   └── autocmds.lua            # ★ JS/TS file path resolution
     └── plugins/
         ├── colorscheme.lua         # ★ JARVIS dark theme
         ├── neo-tree.lua            # ★ File explorer config
