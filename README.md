@@ -349,6 +349,7 @@ These are available without any configuration. Full list: https://www.lazyvim.or
 | `follow_current_file` | `true` | Tree follows the active file |
 | `hide_dotfiles` | `false` | Shows `.env`, `.git`, etc. |
 | `hide_gitignored` | `false` | Shows gitignored files |
+| Right-click | — | Context menu (Delete, Rename, Copy, Cut, Paste, New) |
 
 ### Inline Git Blame (GitLens-style)
 
